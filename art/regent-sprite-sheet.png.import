@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/regent-idle.png-f86a5934a43b5b9f322a7aee73091cb5.stex"
+path="res://.import/regent-sprite-sheet.png-3ea94208d8dfb89f67bc5e358fef8aba.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://regent-idle.png"
-dest_files=[ "res://.import/regent-idle.png-f86a5934a43b5b9f322a7aee73091cb5.stex" ]
+source_file="res://art/regent-sprite-sheet.png"
+dest_files=[ "res://.import/regent-sprite-sheet.png-3ea94208d8dfb89f67bc5e358fef8aba.stex" ]
 
 [params]
 

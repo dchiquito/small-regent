@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-const harpoon_scene = preload("res://Harpoon.tscn")
+const harpoon_scene = preload("res://scenes/Harpoon.tscn")
 onready var sprite = $AnimatedSprite
 
 const WALKING_SPEED = 100
@@ -30,7 +30,7 @@ func remove_harpoon():
 	harpoon.queue_free()
 	harpoon = null
 
-func _input(ev):
+func _input(_ev):
 	if Input.is_action_pressed("fire_harpoon") and state == State.IDLE:
 		state = State.SHOOTING
 		sprite.animation = 'reel'
@@ -55,12 +55,15 @@ func _physics_process(delta):
 		rotation += 2.2
 	if state == State.IDLE:
 		if Input.is_action_pressed("move_right"):
+			# warning-ignore:return_value_discarded
 			move_and_collide(Vector2(WALKING_SPEED, 0).rotated(move_rotation) * delta)
 		if Input.is_action_pressed("move_left"):
+			# warning-ignore:return_value_discarded
 			move_and_collide(Vector2(-WALKING_SPEED, 0).rotated(move_rotation) * delta)
 	if state == State.IDLE or state == State.REELING:
 		# TODO why track globally
 		velocity = Vector2(0,REELING_SPEED)
+		# warning-ignore:return_value_discarded
 		move_and_slide(velocity.rotated(move_rotation))
 		if get_slide_count() > 0:
 			var collision = get_last_slide_collision()
