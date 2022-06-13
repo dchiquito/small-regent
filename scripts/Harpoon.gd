@@ -1,10 +1,12 @@
 extends RigidBody2D
 
 signal latched
+signal missed
 
 onready var cord = $Cord
 
-const VELOCITY = 1000
+const VELOCITY = 600
+const MAX_DISTANCE = 300
 
 enum State {
 	FLYING,
@@ -25,6 +27,8 @@ func _physics_process(delta):
 		if player == null:
 			player = get_parent()
 		cord.points[0] = -position.rotated(-rotation)
+		if position.length() > MAX_DISTANCE:
+			emit_signal('missed')
 	if state == State.LATCHED:
 		cord.points[0] = (get_node('../Player').position - position).rotated(-rotation)
 		

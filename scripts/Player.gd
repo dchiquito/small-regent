@@ -26,6 +26,7 @@ func shoot_harpoon():
 	harpoon = harpoon_scene.instance()
 	add_child(harpoon)
 	harpoon.connect("latched", self, 'harpoon_latched')
+	harpoon.connect("missed", self, "harpoon_missed")
 
 func remove_harpoon():
 	harpoon.queue_free()
@@ -36,10 +37,6 @@ func _input(_ev):
 		state = State.SHOOTING
 		sprite.animation = 'reel'
 		shoot_harpoon()
-	if Input.is_action_just_pressed("retract_harpoon") and state == State.SHOOTING:
-		state = State.IDLE
-		sprite.animation = 'idle'
-		remove_harpoon()
 	if state == State.IDLE:
 		if Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right"):
 			sprite.animation = 'walk'
@@ -85,6 +82,12 @@ func deferred_harpoon_latched(body):
 	state = State.REELING
 	sprite.animation = "freefall"
 
+func harpoon_missed():
+	call_deferred("deferred_harpoon_missed")
+func deferred_harpoon_missed():
+	state = State.IDLE
+	sprite.animation = "idle"
+	remove_harpoon()
 
 func _on_ZoomDetector_body_entered(body):
 	if body.is_in_group('zoomers'):

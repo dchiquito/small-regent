@@ -11,6 +11,10 @@ __meta__ = {
 
 [node name="Planet" parent="." instance=ExtResource( 2 )]
 
+[node name="Rose" parent="Planet" instance=ExtResource( 1 )]
+position = Vector2( 20, -29 )
+rotation = 0.641574
+
 [node name="Player" parent="Planet" instance=ExtResource( 3 )]
 position = Vector2( -2, -42 )
 
@@ -22,7 +26,3 @@ position = Vector2( -302, 47 )
 
 [node name="Planet4" parent="." instance=ExtResource( 2 )]
 position = Vector2( -576, -162 )
-
-[node name="Rose" parent="." instance=ExtResource( 1 )]
-position = Vector2( 20, -29 )
-rotation = 0.641574

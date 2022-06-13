@@ -30,7 +30,7 @@ shape = SubResource( 2 )
 
 [node name="Cord" type="Line2D" parent="."]
 points = PoolVector2Array( 0, 0, 0, 0 )
-width = 2.0
+width = 1.0
 default_color = Color( 0.607843, 0.607843, 0.607843, 1 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

@@ -82,7 +82,7 @@ resource_name = "camera_zoom"
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Camera2D:zoom")
-tracks/0/interp = 1
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -90,7 +90,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0.7, 0.7 ), Vector2( 0.4, 0.4 ) ]
+"values": [ Vector2( 0.7, 0.7 ), Vector2( 0.3, 0.3 ) ]
 }
 
 [sub_resource type="CircleShape2D" id=69]
@@ -117,6 +117,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 67 )
 animation = "idle"
+frame = 3
 playing = true
 
 [node name="CameraZoomer" type="AnimationPlayer" parent="."]
