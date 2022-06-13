@@ -5,12 +5,14 @@ export var orbital_period: int = 10
 export var starting_point: float = 0
 export var walkable: bool = true
 
-var progress = starting_point
+var progress: float = 0
 
 func _ready():
 	if orbit:
 		var angle = get_node(orbit).position.angle_to(Vector2(1,0))
 		rotate(angle)
+		progress = starting_point * 4
+		print(self,' ',progress)
 	if walkable:
 		add_to_group('walkables')
 

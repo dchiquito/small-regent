@@ -3,6 +3,7 @@ extends Node2D
 onready var path = $EllipticalPath
 
 export var eccentricity: float
+export var reversed: bool = false
 
 func _ready():
 	var mag = position.length()
@@ -13,6 +14,8 @@ func _ready():
 	var a = mag / (eccentricity + 1)
 	var c = eccentricity * a
 	var b = sqrt((a*a) - (c*c))
+	if reversed:
+		b = -b
 
 	var curve = Curve2D.new()
 	curve.add_point(Vector2(0, 0), Vector2(0, -b/2), Vector2(0, -b/2))

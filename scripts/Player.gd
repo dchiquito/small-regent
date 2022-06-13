@@ -89,10 +89,14 @@ func deferred_harpoon_missed():
 	sprite.animation = "idle"
 	remove_harpoon()
 
-func _on_ZoomDetector_body_entered(body):
-	if body.is_in_group('zoomers'):
-		camera_zoomer.play("camera_zoom")
+func zoom_in():
+	camera_zoomer.play("camera_zoom_in")
 
-func _on_ZoomDetector_body_exited(body):
-	if body.is_in_group('zoomers'):
-		camera_zoomer.play_backwards("camera_zoom")
+func unzoom_in():
+	camera_zoomer.play_backwards("camera_zoom_in")
+
+func zoom_out():
+	camera_zoomer.play("camera_zoom_out")
+
+func unzoom_out():
+	camera_zoomer.play_backwards("camera_zoom_out")
