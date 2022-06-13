@@ -3,13 +3,16 @@ extends KinematicBody2D
 const harpoon_scene = preload("res://Harpoon.tscn")
 onready var sprite = $AnimatedSprite
 
+const WALKING_SPEED = 100
+const REELING_SPEED = 500
+
 enum State {
 	IDLE,
 	SHOOTING,
 	REELING,
 }
-
 var state = State.IDLE
+
 var velocity: Vector2 = Vector2(0,0)
 var harpoon = null
 #onready var latched_to: Node2D = get_node("../Sun/Node2D2/EllipticalPath/Orbiter/Node2D/EllipticalPath/Orbiter")
@@ -48,21 +51,24 @@ func _input(ev):
 func _physics_process(delta):
 	rotation = -position.angle_to(Vector2(0,-1))
 	var move_rotation = rotation
+	if state == State.REELING:
+		rotation += 2.2
 	if state == State.IDLE:
 		if Input.is_action_pressed("move_right"):
-			move_and_collide(Vector2(100, 0).rotated(move_rotation) * delta)
+			move_and_collide(Vector2(WALKING_SPEED, 0).rotated(move_rotation) * delta)
 		if Input.is_action_pressed("move_left"):
-			move_and_collide(Vector2(-100, 0).rotated(move_rotation) * delta)
+			move_and_collide(Vector2(-WALKING_SPEED, 0).rotated(move_rotation) * delta)
 	if state == State.IDLE or state == State.REELING:
-		velocity += Vector2(0,10)
-		var collision = move_and_collide(velocity.rotated(move_rotation) * delta)
-		if collision:
-			velocity = Vector2(0,0)
+		# TODO why track globally
+		velocity = Vector2(0,REELING_SPEED)
+		move_and_slide(velocity.rotated(move_rotation))
+		if get_slide_count() > 0:
+			var collision = get_last_slide_collision()
 			if state == State.REELING and collision.collider == get_parent():
+				velocity = Vector2(0,0)
 				state = State.IDLE
 				sprite.animation = "idle"
 				remove_harpoon()
-				
 
 func harpoon_latched(body):
 	call_deferred('deferred_harpoon_latched', body)
