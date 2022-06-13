@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/no_atmosphere.png-fb63644474b94089d6707bede5a8e0b5.stex"
+path="res://.import/no_atmos.png-c5ea08983e111420aa42250ad431ff39.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/no_atmosphere.png"
-dest_files=[ "res://.import/no_atmosphere.png-fb63644474b94089d6707bede5a8e0b5.stex" ]
+source_file="res://art/no_atmos.png"
+dest_files=[ "res://.import/no_atmos.png-c5ea08983e111420aa42250ad431ff39.stex" ]
 
 [params]
 

@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 const harpoon_scene = preload("res://scenes/Harpoon.tscn")
 onready var sprite = $AnimatedSprite
+onready var camera_zoomer = $CameraZoomer
 
 const WALKING_SPEED = 100
 const REELING_SPEED = 500
@@ -83,3 +84,12 @@ func deferred_harpoon_latched(body):
 	global_position = cached_global_position
 	state = State.REELING
 	sprite.animation = "freefall"
+
+
+func _on_ZoomDetector_body_entered(body):
+	if body.is_in_group('zoomers'):
+		camera_zoomer.play("camera_zoom")
+
+func _on_ZoomDetector_body_exited(body):
+	if body.is_in_group('zoomers'):
+		camera_zoomer.play_backwards("camera_zoom")
