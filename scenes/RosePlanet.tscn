@@ -4,7 +4,7 @@
 [ext_resource path="res://scripts/RosePlanet.gd" type="Script" id=2]
 [ext_resource path="res://art/rosetalker.png" type="Texture" id=3]
 [ext_resource path="res://scenes/Orbit.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/ObjectiveOrb.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/EarthOrb.tscn" type="PackedScene" id=5]
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 3 )
@@ -57,6 +57,7 @@ position = Vector2( 10, 3 )
 [node name="EarthOrb" parent="OrbitCenter/Orbit" index="1" instance=ExtResource( 5 )]
 visible = false
 scale = Vector2( 0.5, 0.5 )
+orbit = NodePath("..")
 
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_PlayerDetector_body_entered"]
 [connection signal="body_exited" from="PlayerDetector" to="." method="_on_PlayerDetector_body_exited"]
