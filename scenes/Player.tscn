@@ -3,7 +3,7 @@
 [ext_resource path="res://scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://art/regent-sprite-sheet.png" type="Texture" id=2]
 [ext_resource path="res://scenes/Orbit.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/ObjectiveOrb.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/EarthOrb.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=53]
 extents = Vector2( 6, 12.625 )
@@ -141,9 +141,7 @@ anims/camera_zoom_out = SubResource( 70 )
 [node name="Orbit" parent="." instance=ExtResource( 3 )]
 position = Vector2( 10, 2 )
 
-[node name="ObjectiveOrb" parent="Orbit" instance=ExtResource( 4 )]
+[node name="EarthOrb" parent="Orbit" instance=ExtResource( 4 )]
 visible = false
-position = Vector2( 18, 0 )
 scale = Vector2( 0.5, 0.5 )
 orbit = NodePath("..")
-orbital_period = 3

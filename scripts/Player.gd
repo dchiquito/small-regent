@@ -3,7 +3,7 @@ extends KinematicBody2D
 const harpoon_scene = preload("res://scenes/Harpoon.tscn")
 onready var sprite = $AnimatedSprite
 onready var camera_zoomer = $CameraZoomer
-onready var objective_orb = $Orbit/ObjectiveOrb
+onready var earth_orb = $Orbit/EarthOrb
 
 const WALKING_SPEED = 100
 const REELING_SPEED = 500
@@ -44,7 +44,6 @@ func _input(_ev):
 			sprite.flip_h = Input.is_action_pressed("move_left")
 		else:
 			sprite.animation = 'idle'
-		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -104,4 +103,8 @@ func unzoom_out():
 
 func collect_orb():
 	has_orb = true
-	objective_orb.visible = true
+	earth_orb.visible = true
+
+func dispense_orb():
+	has_orb = false
+	earth_orb.visible = false
