@@ -31,7 +31,6 @@ func _physics_process(delta):
 			emit_signal('missed')
 	if state == State.LATCHED:
 		cord.points[0] = (get_node('../Player').position - position).rotated(-rotation)
-		
 
 func _on_Area2D_body_entered(body):
 	if state == State.FLYING and body.is_in_group('walkables'):

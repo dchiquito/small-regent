@@ -3,6 +3,7 @@ extends KinematicBody2D
 const harpoon_scene = preload("res://scenes/Harpoon.tscn")
 onready var sprite = $AnimatedSprite
 onready var camera_zoomer = $CameraZoomer
+onready var camera = $Camera2D
 onready var earth_orb = $Orbit/EarthOrb
 
 const WALKING_SPEED = 100
@@ -26,8 +27,8 @@ func _ready():
 func shoot_harpoon():
 	harpoon = harpoon_scene.instance()
 	add_child(harpoon)
-	harpoon.connect("latched", self, 'harpoon_latched')
-	harpoon.connect("missed", self, "harpoon_missed")
+	harpoon.connect("latched", self, 'harpoon_latched', [], CONNECT_DEFERRED)
+	harpoon.connect("missed", self, "harpoon_missed", [], CONNECT_DEFERRED)
 
 func remove_harpoon():
 	harpoon.queue_free()
@@ -72,9 +73,6 @@ func _physics_process(delta):
 				remove_harpoon()
 
 func harpoon_latched(body):
-	call_deferred('deferred_harpoon_latched', body)
-# A deferred function call is necessary to do reparenting
-func deferred_harpoon_latched(body):
 	var cached_global_position = global_position
 	get_parent().remove_child(self)
 	body.add_child(self)
@@ -83,20 +81,23 @@ func deferred_harpoon_latched(body):
 	sprite.animation = "freefall"
 
 func harpoon_missed():
-	call_deferred("deferred_harpoon_missed")
-func deferred_harpoon_missed():
 	state = State.IDLE
 	sprite.animation = "idle"
 	remove_harpoon()
 
 func zoom_in():
-	camera_zoomer.play("camera_zoom_in")
+	# Icky patch to fix reparenting the player leaving and reentering the zoom area
+	if camera.zoom.x > 0.31:
+		camera_zoomer.play("camera_zoom_in")
 
 func unzoom_in():
 	camera_zoomer.play_backwards("camera_zoom_in")
 
 func zoom_out():
-	camera_zoomer.play("camera_zoom_out")
+	# Icky patch to fix reparenting the player leaving and reentering the zoom area
+	camera_zoomer.stop()
+	if camera.zoom.x < 0.99:
+		camera_zoomer.play("camera_zoom_out")
 
 func unzoom_out():
 	camera_zoomer.play_backwards("camera_zoom_out")
