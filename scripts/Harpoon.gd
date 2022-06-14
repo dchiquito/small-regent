@@ -31,13 +31,16 @@ func _physics_process(delta):
 			emit_signal('missed')
 	if state == State.LATCHED:
 		cord.points[0] = (get_node('../Player').position - position).rotated(-rotation)
+	# Dumb patch for cord flickering during reparenting. Make sure everything is visible after cord is corrected.
+	visible = true
 
 func _on_Area2D_body_entered(body):
 	if state == State.FLYING and body.is_in_group('walkables'):
-		emit_signal('latched', body)
 		call_deferred('latch_on', body)
 
 func latch_on(body):
+	# Dumb patch for cord flickering. It is revisibled after every _physics_process.
+	visible = false
 	state = State.LATCHED
 	var cached_global_position = global_position
 	get_parent().remove_child(self)
@@ -45,4 +48,5 @@ func latch_on(body):
 	body.add_child(self)
 	global_position = cached_global_position
 	layers = 0
+	emit_signal('latched', body)
 	

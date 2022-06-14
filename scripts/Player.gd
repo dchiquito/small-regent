@@ -31,8 +31,9 @@ func shoot_harpoon():
 	harpoon.connect("missed", self, "harpoon_missed", [], CONNECT_DEFERRED)
 
 func remove_harpoon():
-	harpoon.queue_free()
-	harpoon = null
+	if harpoon != null:
+		harpoon.queue_free()
+		harpoon = null
 
 func _input(_ev):
 	if Input.is_action_pressed("fire_harpoon") and state == State.IDLE:

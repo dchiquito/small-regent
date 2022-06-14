@@ -78,6 +78,9 @@ tile_data = PoolIntArray( -983035, 0, 5, -983034, 0, 2, -983033, 0, 3, -983032, 
 
 [node name="RosePlanet" parent="." instance=ExtResource( 11 )]
 
+[node name="Player" parent="RosePlanet" instance=ExtResource( 3 )]
+position = Vector2( -8, -40 )
+
 [node name="Planet2" parent="." instance=ExtResource( 2 )]
 position = Vector2( -93, -5 )
 
@@ -150,9 +153,6 @@ orbit = NodePath("..")
 
 [node name="Money" parent="GasRingsPlanet2/Orbit/Planet" instance=ExtResource( 8 )]
 position = Vector2( 32, 22 )
-
-[node name="Player" parent="GasRingsPlanet2/Orbit/Planet" instance=ExtResource( 3 )]
-position = Vector2( 4, -49 )
 
 [node name="Orbit2" parent="GasRingsPlanet2" instance=ExtResource( 5 )]
 position = Vector2( -353, -153 )
