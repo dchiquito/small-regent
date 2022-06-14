@@ -1,6 +1,5 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://scenes/Rose.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Planet.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/GasRingsPlanet.tscn" type="PackedScene" id=4]
@@ -95,9 +94,12 @@ walkable = true
 position = Vector2( -131, 112 )
 
 [node name="Planet" parent="GasRingsPlanet/Orbit" instance=ExtResource( 2 )]
+orbit = NodePath("..")
+starting_point = 0.5
 
 [node name="Planet2" parent="GasRingsPlanet/Orbit" instance=ExtResource( 2 )]
 position = Vector2( 245, -210 )
+orbit = NodePath("..")
 
 [node name="Planet5" parent="." instance=ExtResource( 2 )]
 position = Vector2( -373, -710 )
@@ -132,9 +134,6 @@ position = Vector2( 526, -1182 )
 [node name="WetTerran" parent="." instance=ExtResource( 6 )]
 position = Vector2( 638, -1257 )
 
-[node name="Rose" parent="WetTerran" instance=ExtResource( 1 )]
-position = Vector2( 11, -51 )
-
 [node name="Planet15" parent="." instance=ExtResource( 2 )]
 position = Vector2( 712, -1028 )
 
@@ -148,6 +147,7 @@ reversed = true
 
 [node name="Planet" parent="GasRingsPlanet2/Orbit" instance=ExtResource( 2 )]
 position = Vector2( 25, -6 )
+orbit = NodePath("..")
 
 [node name="Money" parent="GasRingsPlanet2/Orbit/Planet" instance=ExtResource( 8 )]
 position = Vector2( 32, 22 )
@@ -157,18 +157,23 @@ position = Vector2( -353, -153 )
 
 [node name="Planet" parent="GasRingsPlanet2/Orbit2" instance=ExtResource( 2 )]
 position = Vector2( 135, -104 )
+orbit = NodePath("..")
+starting_point = 0.33
 
 [node name="Money" parent="GasRingsPlanet2/Orbit2/Planet" instance=ExtResource( 8 )]
 position = Vector2( 1, -34 )
 
 [node name="Planet2" parent="GasRingsPlanet2/Orbit2" instance=ExtResource( 2 )]
 position = Vector2( 205, -156 )
+orbit = NodePath("..")
+starting_point = 0.66
 
 [node name="Money" parent="GasRingsPlanet2/Orbit2/Planet2" instance=ExtResource( 8 )]
 position = Vector2( 26, 25 )
 
 [node name="WetTerran" parent="GasRingsPlanet2/Orbit2" instance=ExtResource( 6 )]
 position = Vector2( 50, -43 )
+orbit = NodePath("..")
 
 [node name="Money" parent="GasRingsPlanet2/Orbit2/WetTerran" instance=ExtResource( 8 )]
 position = Vector2( -3, -51 )
