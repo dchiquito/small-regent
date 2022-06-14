@@ -3,6 +3,7 @@ extends KinematicBody2D
 const harpoon_scene = preload("res://scenes/Harpoon.tscn")
 onready var sprite = $AnimatedSprite
 onready var camera_zoomer = $CameraZoomer
+onready var objective_orb = $Orbit/ObjectiveOrb
 
 const WALKING_SPEED = 100
 const REELING_SPEED = 500
@@ -103,3 +104,4 @@ func unzoom_out():
 
 func collect_orb():
 	has_orb = true
+	objective_orb.visible = true
