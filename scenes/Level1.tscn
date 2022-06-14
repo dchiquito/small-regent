@@ -66,7 +66,11 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+follow_viewport_enable = true
+follow_viewport_scale = 0.5
+
+[node name="TileMap" type="TileMap" parent="ParallaxBackground"]
 tile_set = SubResource( 2 )
 cell_size = Vector2( 128, 128 )
 format = 1
@@ -88,7 +92,6 @@ position = Vector2( -576, -162 )
 
 [node name="GasRingsPlanet" parent="." instance=ExtResource( 4 )]
 position = Vector2( -371, -420 )
-walkable = true
 
 [node name="Orbit" parent="GasRingsPlanet" instance=ExtResource( 5 )]
 position = Vector2( -131, 112 )
@@ -139,7 +142,6 @@ position = Vector2( 712, -1028 )
 
 [node name="GasRingsPlanet2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1174, -723 )
-walkable = true
 
 [node name="Orbit" parent="GasRingsPlanet2" instance=ExtResource( 5 )]
 position = Vector2( -176, -82 )
