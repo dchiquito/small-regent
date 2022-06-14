@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/632535__joedeshon__cabinet-door-thump.wav-0aeaa40d42092656689ae3e5ef1bd98a.sample"
+
+[deps]
+
+source_file="res://sound/freesound/632535__joedeshon__cabinet-door-thump.wav"
+dest_files=[ "res://.import/632535__joedeshon__cabinet-door-thump.wav-0aeaa40d42092656689ae3e5ef1bd98a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

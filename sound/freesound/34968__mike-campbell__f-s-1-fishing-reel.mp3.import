@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/34968__mike-campbell__f-s-1-fishing-reel.mp3-d1d25711f50828618fa488022f2018c9.mp3str"
+
+[deps]
+
+source_file="res://sound/freesound/34968__mike-campbell__f-s-1-fishing-reel.mp3"
+dest_files=[ "res://.import/34968__mike-campbell__f-s-1-fishing-reel.mp3-d1d25711f50828618fa488022f2018c9.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/Planet.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=3]
@@ -10,7 +10,6 @@
 [ext_resource path="res://art/starry-128tilesx15.png" type="Texture" id=9]
 [ext_resource path="res://scenes/ObjectiveOrb.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/RosePlanet.tscn" type="PackedScene" id=11]
-[ext_resource path="res://scenes/EarthOrb.tscn" type="PackedScene" id=12]
 
 [sub_resource type="TileSet" id=2]
 0/name = "starry-128tilesx15.png 0"
@@ -97,12 +96,12 @@ position = Vector2( -371, -420 )
 position = Vector2( -131, 112 )
 
 [node name="Planet" parent="GasRingsPlanet/Orbit" instance=ExtResource( 2 )]
-orbit = NodePath("..")
+orbit = true
 starting_point = 0.5
 
 [node name="Planet2" parent="GasRingsPlanet/Orbit" instance=ExtResource( 2 )]
 position = Vector2( 245, -210 )
-orbit = NodePath("..")
+orbit = true
 
 [node name="Planet5" parent="." instance=ExtResource( 2 )]
 position = Vector2( -373, -710 )
@@ -149,7 +148,7 @@ reversed = true
 
 [node name="Planet" parent="GasRingsPlanet2/Orbit" instance=ExtResource( 2 )]
 position = Vector2( 25, -6 )
-orbit = NodePath("..")
+orbit = true
 
 [node name="Money" parent="GasRingsPlanet2/Orbit/Planet" instance=ExtResource( 8 )]
 position = Vector2( 32, 22 )
@@ -159,7 +158,7 @@ position = Vector2( -353, -153 )
 
 [node name="Planet" parent="GasRingsPlanet2/Orbit2" instance=ExtResource( 2 )]
 position = Vector2( 135, -104 )
-orbit = NodePath("..")
+orbit = true
 starting_point = 0.33
 
 [node name="Money" parent="GasRingsPlanet2/Orbit2/Planet" instance=ExtResource( 8 )]
@@ -167,7 +166,7 @@ position = Vector2( 1, -34 )
 
 [node name="Planet2" parent="GasRingsPlanet2/Orbit2" instance=ExtResource( 2 )]
 position = Vector2( 205, -156 )
-orbit = NodePath("..")
+orbit = true
 starting_point = 0.66
 
 [node name="Money" parent="GasRingsPlanet2/Orbit2/Planet2" instance=ExtResource( 8 )]
@@ -175,7 +174,7 @@ position = Vector2( 26, 25 )
 
 [node name="WetTerran" parent="GasRingsPlanet2/Orbit2" instance=ExtResource( 6 )]
 position = Vector2( 50, -43 )
-orbit = NodePath("..")
+orbit = true
 
 [node name="Money" parent="GasRingsPlanet2/Orbit2/WetTerran" instance=ExtResource( 8 )]
 position = Vector2( -3, -51 )
@@ -207,11 +206,6 @@ position = Vector2( -124, -900 )
 
 [node name="Money3" parent="." instance=ExtResource( 8 )]
 position = Vector2( 125, -1100 )
-
-[node name="ObjectiveOrb" parent="." instance=ExtResource( 10 )]
-position = Vector2( -113, 28 )
-
-[node name="EarthOrb" parent="ObjectiveOrb" instance=ExtResource( 12 )]
 
 [connection signal="body_entered" from="GasRingsPlanet2/ZoomOut" to="GasRingsPlanet2/ZoomOut" method="_on_ZoomOut_body_entered"]
 [connection signal="body_exited" from="GasRingsPlanet2/ZoomOut" to="GasRingsPlanet2/ZoomOut" method="_on_ZoomOut_body_exited"]

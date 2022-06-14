@@ -6,6 +6,10 @@ onready var camera_zoomer = $CameraZoomer
 onready var camera = $Camera2D
 onready var earth_orb = $Orbit/EarthOrb
 
+onready var sound_harpoon = $FireHarpoon
+onready var sound_latch = $Latch
+onready var sound_thud = $Thud
+
 const WALKING_SPEED = 100
 const REELING_SPEED = 500
 
@@ -29,6 +33,7 @@ func shoot_harpoon():
 	add_child(harpoon)
 	harpoon.connect("latched", self, 'harpoon_latched', [], CONNECT_DEFERRED)
 	harpoon.connect("missed", self, "harpoon_missed", [], CONNECT_DEFERRED)
+	sound_harpoon.play()
 
 func remove_harpoon():
 	if harpoon != null:
@@ -71,6 +76,7 @@ func _physics_process(delta):
 				velocity = Vector2(0,0)
 				state = State.IDLE
 				sprite.animation = "idle"
+				sound_thud.play()
 				remove_harpoon()
 
 func harpoon_latched(body):
@@ -80,10 +86,13 @@ func harpoon_latched(body):
 	global_position = cached_global_position
 	state = State.REELING
 	sprite.animation = "freefall"
+	sound_harpoon.stop()
+	sound_latch.play()
 
 func harpoon_missed():
 	state = State.IDLE
 	sprite.animation = "idle"
+	sound_harpoon.stop()
 	remove_harpoon()
 
 func zoom_in():

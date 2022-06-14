@@ -1,7 +1,8 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://scripts/Money.gd" type="Script" id=1]
 [ext_resource path="res://art/money-orb.png" type="Texture" id=2]
+[ext_resource path="res://sound/coin.mp3" type="AudioStream" id=3]
 
 [sub_resource type="Gradient" id=18]
 offsets = PoolRealArray( 0, 0.176796, 0.839779, 1 )
@@ -87,12 +88,29 @@ scale_amount = 2.0
 color = Color( 0.972549, 0.929412, 0.254902, 1 )
 color_ramp = SubResource( 18 )
 
+[node name="Explosion" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 30
+lifetime = 0.3
+one_shot = true
+speed_scale = 0.4
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 60.0
+scale_amount = 2.0
+color = Color( 0.972549, 0.929412, 0.254902, 1 )
+color_ramp = SubResource( 18 )
+
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 17 )
-frame = 8
+frame = 5
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
+
+[node name="Ding" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
 
 [connection signal="body_entered" from="." to="." method="_on_Money_body_entered"]
