@@ -16,7 +16,7 @@ var state = State.IDLE
 
 var velocity: Vector2 = Vector2(0,0)
 var harpoon = null
-#onready var latched_to: Node2D = get_node("../Sun/Node2D2/EllipticalPath/Orbiter/Node2D/EllipticalPath/Orbiter")
+var has_orb: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -100,3 +100,6 @@ func zoom_out():
 
 func unzoom_out():
 	camera_zoomer.play_backwards("camera_zoom_out")
+
+func collect_orb():
+	has_orb = true

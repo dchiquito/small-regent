@@ -12,7 +12,6 @@ func _ready():
 		var angle = get_node(orbit).position.angle_to(Vector2(1,0))
 		rotate(angle)
 		progress = starting_point * 4
-		print(self,' ',progress)
 	if walkable:
 		add_to_group('walkables')
 

@@ -14,6 +14,10 @@ config/name="Small Regent"
 run/main_scene="res://scenes/Level1.tscn"
 config/icon="res://art/icon.png"
 
+[autoload]
+
+HUD="*res://scenes/HUD.tscn"
+
 [display]
 
 window/size/width=800
