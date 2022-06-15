@@ -90,21 +90,21 @@ position = Vector2( 638, -1257 )
 position = Vector2( 712, -1028 )
 
 [node name="GasRingsPlanet2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1174, -723 )
+position = Vector2( 997, -860 )
 
 [node name="Orbit" parent="GasRingsPlanet2" instance=ExtResource( 5 )]
-position = Vector2( -176, -82 )
+position = Vector2( -114, -39 )
 reversed = true
 
 [node name="Planet" parent="GasRingsPlanet2/Orbit" instance=ExtResource( 2 )]
-position = Vector2( 25, -6 )
+position = Vector2( 36, -13 )
 orbit = true
 
 [node name="Money" parent="GasRingsPlanet2/Orbit/Planet" instance=ExtResource( 8 )]
 position = Vector2( 32, 22 )
 
 [node name="Orbit2" parent="GasRingsPlanet2" instance=ExtResource( 5 )]
-position = Vector2( -353, -153 )
+position = Vector2( -219, -79 )
 
 [node name="Planet" parent="GasRingsPlanet2/Orbit2" instance=ExtResource( 2 )]
 position = Vector2( 135, -104 )
@@ -135,6 +135,9 @@ position = Vector2( 45, 37 )
 [node name="ZoomOut" type="Area2D" parent="GasRingsPlanet2"]
 collision_layer = 0
 script = ExtResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GasRingsPlanet2/ZoomOut"]
 shape = SubResource( 1 )
