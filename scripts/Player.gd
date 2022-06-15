@@ -5,6 +5,8 @@ onready var sprite = $AnimatedSprite
 onready var camera_zoomer = $CameraZoomer
 onready var camera = $Camera2D
 onready var earth_orb = $Orbit/EarthOrb
+onready var water_orb = $Orbit/WaterOrb
+onready var light_orb = $Orbit/LightOrb
 
 onready var sound_harpoon = $FireHarpoon
 onready var sound_latch = $Latch
@@ -114,8 +116,8 @@ func unzoom_out():
 
 func collect_orb():
 	has_orb = true
-	earth_orb.visible = true
+	StateManager.select_current_orb(earth_orb, water_orb, light_orb).visible = true
 
 func dispense_orb():
 	has_orb = false
-	earth_orb.visible = false
+	StateManager.select_current_orb(earth_orb, water_orb, light_orb).visible = false

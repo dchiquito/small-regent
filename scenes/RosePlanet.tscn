@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scenes/Planet.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/RosePlanet.gd" type="Script" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://scenes/Orbit.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/EarthOrb.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/dialogue/DialogueManager.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/WaterOrb.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/LightOrb.tscn" type="PackedScene" id=8]
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 3 )
@@ -44,24 +46,36 @@ rotation = 0.29893
 frames = SubResource( 5 )
 animation = "idle"
 
+[node name="OrbitCenter" type="Node2D" parent="AnimatedSprite" index="0"]
+rotation = -0.29893
+
+[node name="Orbit" parent="AnimatedSprite/OrbitCenter" index="0" instance=ExtResource( 4 )]
+position = Vector2( 13, 4 )
+
+[node name="EarthOrb" parent="AnimatedSprite/OrbitCenter/Orbit" index="1" instance=ExtResource( 5 )]
+visible = false
+scale = Vector2( 0.5, 0.5 )
+orbit = true
+
+[node name="WaterOrb" parent="AnimatedSprite/OrbitCenter/Orbit" index="2" instance=ExtResource( 7 )]
+visible = false
+scale = Vector2( 0.5, 0.5 )
+orbit = true
+starting_point = 0.33
+
+[node name="LightOrb" parent="AnimatedSprite/OrbitCenter/Orbit" index="3" instance=ExtResource( 8 )]
+visible = false
+scale = Vector2( 0.5, 0.5 )
+orbit = true
+starting_point = 0.66
+
 [node name="PlayerDetector" type="Area2D" parent="." index="3"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" index="0"]
 position = Vector2( -8, -28 )
 shape = SubResource( 6 )
 
-[node name="OrbitCenter" type="Node2D" parent="." index="4"]
-position = Vector2( 11, -34 )
-
-[node name="Orbit" parent="OrbitCenter" index="0" instance=ExtResource( 4 )]
-position = Vector2( 10, 3 )
-
-[node name="EarthOrb" parent="OrbitCenter/Orbit" index="1" instance=ExtResource( 5 )]
-visible = false
-scale = Vector2( 0.5, 0.5 )
-orbit = NodePath("..")
-
-[node name="DialogueManager" parent="." index="5" instance=ExtResource( 6 )]
+[node name="DialogueManager" parent="." index="4" instance=ExtResource( 6 )]
 
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_PlayerDetector_body_entered"]
 [connection signal="body_exited" from="PlayerDetector" to="." method="_on_PlayerDetector_body_exited"]

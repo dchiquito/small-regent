@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://art/regent-sprite-sheet.png" type="Texture" id=2]
@@ -6,7 +6,9 @@
 [ext_resource path="res://scenes/EarthOrb.tscn" type="PackedScene" id=4]
 [ext_resource path="res://sound/freesound/346524__def__whip.wav" type="AudioStream" id=5]
 [ext_resource path="res://sound/freesound/541975__16bitstudios__grappling-hook.wav" type="AudioStream" id=6]
+[ext_resource path="res://scenes/WaterOrb.tscn" type="PackedScene" id=7]
 [ext_resource path="res://sound/freesound/632535__joedeshon__cabinet-door-thump.wav" type="AudioStream" id=8]
+[ext_resource path="res://scenes/LightOrb.tscn" type="PackedScene" id=9]
 
 [sub_resource type="RectangleShape2D" id=53]
 extents = Vector2( 6, 12.625 )
@@ -135,7 +137,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 67 )
 animation = "idle"
-frame = 1
+frame = 2
 playing = true
 
 [node name="CameraZoomer" type="AnimationPlayer" parent="."]
@@ -148,7 +150,17 @@ position = Vector2( 10, 2 )
 [node name="EarthOrb" parent="Orbit" instance=ExtResource( 4 )]
 visible = false
 scale = Vector2( 0.5, 0.5 )
-orbit = NodePath("..")
+orbit = true
+
+[node name="WaterOrb" parent="Orbit" instance=ExtResource( 7 )]
+visible = false
+scale = Vector2( 0.5, 0.5 )
+orbit = true
+
+[node name="LightOrb" parent="Orbit" instance=ExtResource( 9 )]
+visible = false
+scale = Vector2( 0.5, 0.5 )
+orbit = true
 
 [node name="FireHarpoon" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 5 )

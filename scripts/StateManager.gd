@@ -20,6 +20,15 @@ func load_next_level():
 	get_tree().change_scene(get_level_scene(current_level))
 	cutscene_playing = false
 
+func select_current_orb(earth, water, light):
+	match current_level:
+		1:
+			return earth
+		2:
+			return water
+		3:
+			return light
+
 func rose_talk_message():
 	match current_level:
 		1:

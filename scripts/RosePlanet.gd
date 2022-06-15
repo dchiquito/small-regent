@@ -1,6 +1,8 @@
 extends RigidBody2D
 
-onready var earth_orb = $OrbitCenter/Orbit/EarthOrb
+onready var earth_orb = $AnimatedSprite/OrbitCenter/Orbit/EarthOrb
+onready var water_orb = $AnimatedSprite/OrbitCenter/Orbit/WaterOrb
+onready var light_orb = $AnimatedSprite/OrbitCenter/Orbit/LightOrb
 onready var dialogue_manager = $DialogueManager
 onready var sprite = $AnimatedSprite
 
@@ -17,6 +19,10 @@ var near_player = false
 
 func _ready():
 	add_to_group('walkables')
+	if StateManager.current_level >= 2:
+		earth_orb.visible = true
+	if StateManager.current_level >= 3:
+		water_orb.visible = true
 
 func _input(_ev):
 	if near_player and player != null and Input.is_action_just_pressed("talk") and (not StateManager.dialog_freeze) and (not StateManager.cutscene_playing):
@@ -25,7 +31,7 @@ func _input(_ev):
 			talk(StateManager.rose_talk_message())
 		else:
 			player.dispense_orb()
-			earth_orb.visible = true
+			StateManager.select_current_orb(earth_orb, water_orb, light_orb).visible = true
 			state = State.PRELEAVE_TALKING
 			talk(StateManager.rose_leave_message())
 

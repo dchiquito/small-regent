@@ -1,6 +1,5 @@
 extends RigidBody2D
 
-onready var earth_orb = $OrbitCenter/Orbit/EarthOrb
 onready var sprite = $Merchant
 onready var dialogue_manager = $DialogueManager
 onready var dialog_spot = $DialogSpot
