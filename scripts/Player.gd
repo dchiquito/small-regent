@@ -46,7 +46,7 @@ func _input(_ev):
 		sprite.animation = 'reel'
 		shoot_harpoon()
 	if state == State.IDLE:
-		if Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right") and not StateManager.dialog_freeze:
+		if (Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right")) and not StateManager.dialog_freeze:
 			sprite.animation = 'walk'
 			sprite.flip_h = Input.is_action_pressed("move_left")
 		else:
