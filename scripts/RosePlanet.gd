@@ -23,6 +23,7 @@ func _ready():
 		earth_orb.visible = true
 	if StateManager.current_level >= 3:
 		water_orb.visible = true
+	HUD.fade_in()
 
 func _input(_ev):
 	if near_player and player != null and Input.is_action_just_pressed("talk") and (not StateManager.dialog_freeze) and (not StateManager.cutscene_playing):
@@ -61,6 +62,8 @@ func _on_DialogueManager_finished():
 	elif state == State.PRELEAVE_TALKING:
 		StateManager.cutscene_playing = true
 		state = State.LEAVING
-		yield(get_tree().create_timer(3), "timeout")
+		yield(get_tree().create_timer(2), "timeout")
+		HUD.fade_to_black()
+		yield(get_tree().create_timer(1), "timeout")
 		StateManager.load_next_level()
 
