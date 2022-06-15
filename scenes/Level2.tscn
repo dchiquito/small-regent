@@ -1,8 +1,14 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/RosePlanet.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/WaterOrb.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/WaterHuge.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Orbit.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/WetTerran.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/Planet.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/WaterLarge.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/GasRingsPlanet.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/ObjectiveOrb.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/Background.tscn" type="PackedScene" id=12]
 
@@ -19,3 +25,161 @@ position = Vector2( -13, -46 )
 position = Vector2( -35, 11 )
 
 [node name="WaterOrb" parent="RosePlanet/ObjectiveOrb" instance=ExtResource( 3 )]
+
+[node name="WaterHuge" parent="." instance=ExtResource( 4 )]
+position = Vector2( 191, 398 )
+walkable = false
+
+[node name="Orbit" parent="WaterHuge" instance=ExtResource( 5 )]
+position = Vector2( -242, -505 )
+
+[node name="WetTerran" parent="WaterHuge/Orbit" instance=ExtResource( 6 )]
+orbit = true
+orbital_period = 20
+
+[node name="WetTerran2" parent="WaterHuge/Orbit" instance=ExtResource( 6 )]
+orbit = true
+orbital_period = 20
+starting_point = 0.2
+
+[node name="WetTerran3" parent="WaterHuge/Orbit" instance=ExtResource( 6 )]
+orbit = true
+orbital_period = 20
+starting_point = 0.4
+
+[node name="WetTerran4" parent="WaterHuge/Orbit" instance=ExtResource( 6 )]
+orbit = true
+orbital_period = 20
+starting_point = 0.6
+
+[node name="WetTerran5" parent="WaterHuge/Orbit" instance=ExtResource( 6 )]
+orbit = true
+orbital_period = 20
+starting_point = 0.8
+
+[node name="Orbit2" parent="WaterHuge" instance=ExtResource( 5 )]
+position = Vector2( -352, -666 )
+reversed = true
+
+[node name="WetTerran" parent="WaterHuge/Orbit2" instance=ExtResource( 6 )]
+orbit = true
+orbital_period = 20
+
+[node name="WetTerran2" parent="WaterHuge/Orbit2" instance=ExtResource( 6 )]
+orbit = true
+orbital_period = 20
+starting_point = 0.2
+
+[node name="WetTerran3" parent="WaterHuge/Orbit2" instance=ExtResource( 6 )]
+orbit = true
+orbital_period = 20
+starting_point = 0.4
+
+[node name="WetTerran4" parent="WaterHuge/Orbit2" instance=ExtResource( 6 )]
+orbit = true
+orbital_period = 20
+starting_point = 0.6
+
+[node name="WetTerran5" parent="WaterHuge/Orbit2" instance=ExtResource( 6 )]
+orbit = true
+orbital_period = 20
+starting_point = 0.8
+
+[node name="Node2D" type="Node2D" parent="WaterHuge"]
+position = Vector2( -107, -919 )
+
+[node name="Orbit" parent="WaterHuge/Node2D" instance=ExtResource( 5 )]
+position = Vector2( 81, -54 )
+
+[node name="Planet" parent="WaterHuge/Node2D/Orbit" instance=ExtResource( 7 )]
+orbit = true
+orbital_period = 8
+
+[node name="Planet2" parent="WaterHuge/Node2D/Orbit" instance=ExtResource( 7 )]
+orbit = true
+orbital_period = 8
+starting_point = 0.5
+
+[node name="WaterLarge" parent="." instance=ExtResource( 8 )]
+position = Vector2( 129, -1178 )
+
+[node name="Orbit" parent="WaterLarge" instance=ExtResource( 5 )]
+position = Vector2( 27, 456 )
+
+[node name="WetTerran" parent="WaterLarge/Orbit" instance=ExtResource( 6 )]
+orbit = true
+orbital_period = 60
+
+[node name="WetTerran2" parent="WaterLarge/Orbit" instance=ExtResource( 6 )]
+orbit = true
+orbital_period = 60
+starting_point = 0.1
+
+[node name="WetTerran3" parent="WaterLarge/Orbit" instance=ExtResource( 6 )]
+orbit = true
+orbital_period = 60
+starting_point = 0.2
+
+[node name="WetTerran4" parent="WaterLarge/Orbit" instance=ExtResource( 6 )]
+orbit = true
+orbital_period = 60
+starting_point = 0.3
+
+[node name="GasRingsPlanet" parent="WaterLarge/Orbit" instance=ExtResource( 9 )]
+orbit = true
+orbital_period = 60
+starting_point = 0.4
+
+[node name="WetTerran6" parent="WaterLarge/Orbit" instance=ExtResource( 6 )]
+orbit = true
+orbital_period = 60
+starting_point = 0.5
+
+[node name="WetTerran7" parent="WaterLarge/Orbit" instance=ExtResource( 6 )]
+orbit = true
+orbital_period = 60
+starting_point = 0.6
+
+[node name="WetTerran8" parent="WaterLarge/Orbit" instance=ExtResource( 6 )]
+orbit = true
+orbital_period = 60
+starting_point = 0.7
+
+[node name="WetTerran9" parent="WaterLarge/Orbit" instance=ExtResource( 6 )]
+orbit = true
+orbital_period = 60
+starting_point = 0.8
+
+[node name="GasRingsPlanet2" parent="WaterLarge/Orbit" instance=ExtResource( 9 )]
+orbit = true
+orbital_period = 60
+starting_point = 0.9
+
+[node name="Orbit2" parent="WaterLarge" instance=ExtResource( 5 )]
+position = Vector2( 16, 320 )
+
+[node name="Planet" parent="WaterLarge/Orbit2" instance=ExtResource( 7 )]
+orbit = true
+orbital_period = 60
+starting_point = 0.4
+
+[node name="Planet2" parent="WaterLarge/Orbit2" instance=ExtResource( 7 )]
+orbit = true
+orbital_period = 60
+starting_point = 0.9
+
+[node name="Node2D2" type="Node2D" parent="."]
+position = Vector2( 92, -1843 )
+
+[node name="Orbit" parent="Node2D2" instance=ExtResource( 5 )]
+position = Vector2( 81, -54 )
+reversed = true
+
+[node name="Planet" parent="Node2D2/Orbit" instance=ExtResource( 7 )]
+orbit = true
+orbital_period = 8
+
+[node name="Planet2" parent="Node2D2/Orbit" instance=ExtResource( 7 )]
+orbit = true
+orbital_period = 8
+starting_point = 0.5
