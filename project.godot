@@ -8,15 +8,50 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Reference",
+"class": "DPause",
+"language": "GDScript",
+"path": "res://scenes/dialogue/DPause.gd"
+}, {
+"base": "Control",
+"class": "Dialogue",
+"language": "GDScript",
+"path": "res://scenes/dialogue/Dialogue.gd"
+}, {
+"base": "Node",
+"class": "DialogueManager",
+"language": "GDScript",
+"path": "res://scenes/dialogue/DialogueManager.gd"
+}, {
+"base": "AudioStreamPlayer",
+"class": "DialogueVoicePlayer",
+"language": "GDScript",
+"path": "res://scenes/dialogue/DialogueVoicePlayer.gd"
+}, {
+"base": "Node",
+"class": "PauseCalculator",
+"language": "GDScript",
+"path": "res://scenes/dialogue/PauseCalculator.gd"
+} ]
+_global_script_class_icons={
+"DPause": "",
+"Dialogue": "",
+"DialogueManager": "",
+"DialogueVoicePlayer": "",
+"PauseCalculator": ""
+}
+
 [application]
 
 config/name="Small Regent"
-run/main_scene="res://scenes/Level2.tscn"
+run/main_scene="res://scenes/Level1.tscn"
 config/icon="res://art/icon.png"
 
 [autoload]
 
 HUD="*res://scenes/HUD.tscn"
+StateManager="*res://scenes/StateManager.tscn"
 
 [display]
 
@@ -81,7 +116,7 @@ fire_harpoon={
 "events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
  ]
 }
-give={
+talk={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":69,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]

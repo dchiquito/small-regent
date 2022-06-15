@@ -41,12 +41,12 @@ func remove_harpoon():
 		harpoon = null
 
 func _input(_ev):
-	if Input.is_action_pressed("fire_harpoon") and state == State.IDLE:
+	if Input.is_action_pressed("fire_harpoon") and state == State.IDLE and not StateManager.dialog_freeze:
 		state = State.SHOOTING
 		sprite.animation = 'reel'
 		shoot_harpoon()
 	if state == State.IDLE:
-		if Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right"):
+		if Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right") and not StateManager.dialog_freeze:
 			sprite.animation = 'walk'
 			sprite.flip_h = Input.is_action_pressed("move_left")
 		else:
@@ -58,7 +58,7 @@ func _physics_process(delta):
 	var move_rotation = rotation
 	if state == State.REELING:
 		rotation += 2.2
-	if state == State.IDLE:
+	if state == State.IDLE and not StateManager.dialog_freeze:
 		if Input.is_action_pressed("move_right"):
 			# warning-ignore:return_value_discarded
 			move_and_collide(Vector2(WALKING_SPEED, 0).rotated(move_rotation) * delta)
