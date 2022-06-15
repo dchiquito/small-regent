@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Kevin MacLeod - Erik Satie Gymnopedie No 1.mp3-c45c3a70256a01104951ced38b13724b.mp3str"
+
+[deps]
+
+source_file="res://sound/Kevin MacLeod - Erik Satie Gymnopedie No 1.mp3"
+dest_files=[ "res://.import/Kevin MacLeod - Erik Satie Gymnopedie No 1.mp3-c45c3a70256a01104951ced38b13724b.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
