@@ -102,6 +102,8 @@ orbit = true
 orbital_period = 8
 starting_point = 0.5
 
+[node name="Money" parent="WaterHuge/Node2D" instance=ExtResource( 13 )]
+
 [node name="WaterLarge" parent="." instance=ExtResource( 8 )]
 position = Vector2( 129, -1178 )
 
@@ -112,47 +114,80 @@ position = Vector2( 27, 456 )
 orbit = true
 orbital_period = 60
 
+[node name="Money" parent="WaterLarge/Orbit/WetTerran" instance=ExtResource( 13 )]
+position = Vector2( 4, 54 )
+
 [node name="WetTerran2" parent="WaterLarge/Orbit" instance=ExtResource( 6 )]
+position = Vector2( 611, -294 )
 orbit = true
 orbital_period = 60
 starting_point = 0.1
 
+[node name="Money" parent="WaterLarge/Orbit/WetTerran2" instance=ExtResource( 13 )]
+position = Vector2( -38, 36 )
+
 [node name="WetTerran3" parent="WaterLarge/Orbit" instance=ExtResource( 6 )]
+position = Vector2( 614, -388 )
 orbit = true
 orbital_period = 60
 starting_point = 0.2
 
+[node name="Money" parent="WaterLarge/Orbit/WetTerran3" instance=ExtResource( 13 )]
+position = Vector2( -49, -22 )
+
 [node name="WetTerran4" parent="WaterLarge/Orbit" instance=ExtResource( 6 )]
+position = Vector2( 542, -336 )
 orbit = true
 orbital_period = 60
 starting_point = 0.3
 
+[node name="Money" parent="WaterLarge/Orbit/WetTerran4" instance=ExtResource( 13 )]
+position = Vector2( 49, -7 )
+
 [node name="GasRingsPlanet" parent="WaterLarge/Orbit" instance=ExtResource( 9 )]
+position = Vector2( 494, -272 )
 orbit = true
 orbital_period = 60
 starting_point = 0.4
 
 [node name="WetTerran6" parent="WaterLarge/Orbit" instance=ExtResource( 6 )]
+position = Vector2( 401, -233 )
 orbit = true
 orbital_period = 60
 starting_point = 0.5
 
+[node name="Money" parent="WaterLarge/Orbit/WetTerran6" instance=ExtResource( 13 )]
+position = Vector2( -14, -47 )
+
 [node name="WetTerran7" parent="WaterLarge/Orbit" instance=ExtResource( 6 )]
+position = Vector2( 312, -170 )
 orbit = true
 orbital_period = 60
 starting_point = 0.6
 
+[node name="Money" parent="WaterLarge/Orbit/WetTerran7" instance=ExtResource( 13 )]
+position = Vector2( 41, 31 )
+
 [node name="WetTerran8" parent="WaterLarge/Orbit" instance=ExtResource( 6 )]
+position = Vector2( 233, -110 )
 orbit = true
 orbital_period = 60
 starting_point = 0.7
 
+[node name="Money" parent="WaterLarge/Orbit/WetTerran8" instance=ExtResource( 13 )]
+position = Vector2( -48, -23 )
+
 [node name="WetTerran9" parent="WaterLarge/Orbit" instance=ExtResource( 6 )]
+position = Vector2( 179, -37 )
 orbit = true
 orbital_period = 60
 starting_point = 0.8
 
+[node name="Money" parent="WaterLarge/Orbit/WetTerran9" instance=ExtResource( 13 )]
+position = Vector2( 50, -8 )
+
 [node name="GasRingsPlanet2" parent="WaterLarge/Orbit" instance=ExtResource( 9 )]
+position = Vector2( 88, -18 )
 orbit = true
 orbital_period = 60
 starting_point = 0.9
@@ -165,10 +200,17 @@ orbit = true
 orbital_period = 60
 starting_point = 0.4
 
+[node name="Money" parent="WaterLarge/Orbit2/Planet" instance=ExtResource( 13 )]
+position = Vector2( -20, 34 )
+
 [node name="Planet2" parent="WaterLarge/Orbit2" instance=ExtResource( 7 )]
+position = Vector2( 43, -26 )
 orbit = true
 orbital_period = 60
 starting_point = 0.9
+
+[node name="Money" parent="WaterLarge/Orbit2/Planet2" instance=ExtResource( 13 )]
+position = Vector2( 22, -28 )
 
 [node name="Node2D2" type="Node2D" parent="."]
 position = Vector2( 92, -1843 )
