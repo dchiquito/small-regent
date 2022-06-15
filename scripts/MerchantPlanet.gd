@@ -13,14 +13,14 @@ func _ready():
 
 func _input(_ev):
 	if near_player and Input.is_action_just_pressed("talk") and not StateManager.dialog_freeze:
-		talk(['teehee'])
+		talk(StateManager.merchant_talk_message())
 
 func talk(messages):
 	sprite.animation = "talking"
 	dialogue_manager.show_messages(messages, dialog_spot.global_position)
 
 func _on_DialogueManager_finished():
-	pass # Replace with function body.
+	sprite.animation = "idle"
 
 func _on_PlayerDetector_body_entered(body):
 	if body.name == 'Player':

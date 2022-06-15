@@ -114,7 +114,7 @@ shape = SubResource( 17 )
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
 scale = Vector2( 5, 5 )
 frames = SubResource( 18 )
-frame = 5
+frame = 12
 playing = true
 
 [node name="Merchant" type="AnimatedSprite" parent="."]

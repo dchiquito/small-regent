@@ -41,7 +41,7 @@ func remove_harpoon():
 		harpoon = null
 
 func _input(_ev):
-	if Input.is_action_pressed("fire_harpoon") and state == State.IDLE and not StateManager.dialog_freeze:
+	if Input.is_action_pressed("fire_harpoon") and state == State.IDLE and (not StateManager.dialog_freeze) and (not StateManager.cutscene_playing):
 		state = State.SHOOTING
 		sprite.animation = 'reel'
 		shoot_harpoon()

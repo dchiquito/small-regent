@@ -19,15 +19,15 @@ func _ready():
 	add_to_group('walkables')
 
 func _input(_ev):
-	if near_player and player != null and Input.is_action_just_pressed("talk") and not StateManager.dialog_freeze:
+	if near_player and player != null and Input.is_action_just_pressed("talk") and (not StateManager.dialog_freeze) and (not StateManager.cutscene_playing):
 		if not player.has_orb:
 			state = State.TALKING
-			talk(['fetch me dirt'])
+			talk(StateManager.rose_talk_message())
 		else:
 			player.dispense_orb()
 			earth_orb.visible = true
 			state = State.PRELEAVE_TALKING
-			talk(['mmm, earthy', 'Thank you, small regent\n  :)'])
+			talk(StateManager.rose_leave_message())
 
 func _physics_process(delta):
 	if state == State.LEAVING:
@@ -53,7 +53,8 @@ func _on_DialogueManager_finished():
 	if state == State.TALKING:
 		state = State.IDLE
 	elif state == State.PRELEAVE_TALKING:
+		StateManager.cutscene_playing = true
 		state = State.LEAVING
 		yield(get_tree().create_timer(3), "timeout")
-		get_tree().change_scene("res://scenes/Level2.tscn")
+		StateManager.load_next_level()
 
