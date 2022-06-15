@@ -4,7 +4,7 @@
 [ext_resource path="res://scripts/Planet.gd" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=54]
-radius = 25.0
+radius = 25.02
 
 [node name="Planet" type="RigidBody2D"]
 mode = 1
