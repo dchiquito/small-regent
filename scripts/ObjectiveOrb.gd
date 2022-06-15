@@ -1,7 +1,10 @@
 extends Area2D
 
+onready var sound = $AudioStreamPlayer2D
+
 func _on_ObjectiveOrb_body_entered(body):
 	if body.name == 'Player':
 		body.collect_orb()
-		# TODO play sound
+		sound.play()
+		yield(get_tree().create_timer(1.1), "timeout")
 		queue_free()

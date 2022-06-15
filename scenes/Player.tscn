@@ -135,7 +135,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 67 )
 animation = "idle"
-frame = 2
+frame = 1
 playing = true
 
 [node name="CameraZoomer" type="AnimationPlayer" parent="."]

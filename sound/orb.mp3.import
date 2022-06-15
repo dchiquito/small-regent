@@ -11,5 +11,5 @@ dest_files=[ "res://.import/orb.mp3-f7fe8c625d964531164ce90005860946.mp3str" ]
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
