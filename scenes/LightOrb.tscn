@@ -1,16 +1,10 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scripts/Orb.gd" type="Script" id=1]
+[ext_resource path="res://art/orb-light.png" type="Texture" id=2]
 
 [node name="LightOrb" type="Node2D"]
 script = ExtResource( 1 )
 
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_left = -10.0
-margin_top = -10.0
-margin_right = 10.0
-margin_bottom = 10.0
-color = Color( 0.968627, 1, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
