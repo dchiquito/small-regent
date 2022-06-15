@@ -5,7 +5,7 @@ onready var explosion = $Explosion
 onready var sound = $Ding
 
 func _on_Money_body_entered(body):
-	if body.name == 'Player':
+	if body.name == 'Player' and sprite.visible:
 		HUD.increment_money()
 		sprite.visible = false
 		explosion.emitting = true
