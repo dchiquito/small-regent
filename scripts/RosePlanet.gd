@@ -90,4 +90,6 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "rose_leaves":
 		HUD.fade_to_black()
 		yield(get_tree().create_timer(1), "timeout")
-		print("game")
+		HUD.fin()
+		yield(get_tree().create_timer(5), "timeout")
+		print("OVER")
