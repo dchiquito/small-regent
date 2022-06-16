@@ -4,6 +4,7 @@ onready var earth_orb = $AnimatedSprite/OrbitCenter/Orbit/EarthOrb
 onready var water_orb = $AnimatedSprite/OrbitCenter/Orbit/WaterOrb
 onready var light_orb = $AnimatedSprite/OrbitCenter/Orbit/LightOrb
 onready var dialogue_manager = $DialogueManager
+onready var dialog_spot = $DialogSpot
 onready var sprite = $AnimatedSprite
 
 enum State {
@@ -53,7 +54,7 @@ func _on_PlayerDetector_body_exited(body):
 
 func talk(messages):
 	sprite.animation = "talking"
-	dialogue_manager.show_messages(messages, Vector2(-50,-100))
+	dialogue_manager.show_messages(messages, dialog_spot.global_position)
 
 func _on_DialogueManager_finished():
 	sprite.animation = "idle"

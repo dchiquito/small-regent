@@ -8,8 +8,9 @@
 [ext_resource path="res://font_theme.tres" type="Theme" id=6]
 
 [node name="Dialogue" type="NinePatchRect"]
-margin_top = -57.0
+margin_top = -46.0
 margin_right = 105.0
+margin_bottom = -1.0
 texture = ExtResource( 1 )
 region_rect = Rect2( 1, 0, 16, 18 )
 patch_margin_left = 6
@@ -25,9 +26,9 @@ __meta__ = {
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_left = 3.0
-margin_top = -53.0
-margin_right = 89.0
-margin_bottom = -17.0
+margin_top = -41.0
+margin_right = 102.0
+margin_bottom = -4.0
 theme = ExtResource( 6 )
 custom_colors/default_color = Color( 0.00392157, 0.0862745, 0.129412, 1 )
 custom_colors/font_color_selected = Color( 0.00392157, 0.0862745, 0.129412, 1 )

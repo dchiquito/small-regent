@@ -32,25 +32,25 @@ func select_current_orb(earth, water, light):
 func rose_talk_message():
 	match current_level:
 		1:
-			return ["a"]
+			return ["hello Small Regent", "we live on a very dusty asteroid,{p=0.2} don't we?", "if only i had some earth,{p=0.5} i would be happy"]
 		2:
-			return ["b"]
+			return ["hello again Small Regent", "this asteroid is too dry for me", "if only i had some water,{p=0.5} i would be happy"]
 		3:
-			return ["c"]
+			return ["hello Small Regent", "it is to dark to see where i am going", "if only i had some light,{p=0.5} i would be happy"]
 
 func rose_leave_message():
 	match current_level:
 		1:
-			return ["aa"]
+			return ["this earth feels perfect on my roots", "thank you Small Regent\n{p=1.0} :)"]
 		2:
-			return ["bb"]
+			return ["this water is delicious", "thank you Small Regent\n{p=1.0}:)"]
 		3:
-			return ["cc"]
+			return ["this light shines on everything", "thank you Small Regent\n{p=1.0}:)"]
 
 func merchant_talk_message():
 	match current_level:
 		1:
-			return ["aaa"]
+			return ["Greetings and Salutations, Small Regent!"]
 		2:
 			return ["bbb"]
 		3:

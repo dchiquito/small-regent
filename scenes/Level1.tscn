@@ -33,6 +33,11 @@ position = Vector2( -12, -45 )
 [node name="Planet2" parent="." instance=ExtResource( 2 )]
 position = Vector2( -93, -5 )
 
+[node name="ObjectiveOrb" parent="Planet2" instance=ExtResource( 10 )]
+position = Vector2( 31, 17 )
+
+[node name="EarthOrb" parent="Planet2/ObjectiveOrb" instance=ExtResource( 12 )]
+
 [node name="Planet3" parent="." instance=ExtResource( 2 )]
 position = Vector2( -302, 47 )
 

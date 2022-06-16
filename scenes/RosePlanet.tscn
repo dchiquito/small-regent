@@ -77,6 +77,9 @@ shape = SubResource( 6 )
 
 [node name="DialogueManager" parent="." index="4" instance=ExtResource( 6 )]
 
+[node name="DialogSpot" type="Node2D" parent="." index="5"]
+position = Vector2( 0, -98 )
+
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_PlayerDetector_body_entered"]
 [connection signal="body_exited" from="PlayerDetector" to="." method="_on_PlayerDetector_body_exited"]
 [connection signal="finished" from="DialogueManager" to="." method="_on_DialogueManager_finished"]
