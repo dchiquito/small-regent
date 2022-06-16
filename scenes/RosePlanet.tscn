@@ -36,7 +36,7 @@ animations = [ {
 } ]
 
 [sub_resource type="CircleShape2D" id=6]
-radius = 12.3693
+radius = 7.0
 
 [sub_resource type="Animation" id=8]
 resource_name = "rose_leaves"
@@ -129,7 +129,7 @@ rotation = -0.29893
 [node name="PlayerDetector" type="Area2D" parent="." index="3"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" index="0"]
-position = Vector2( -8, -28 )
+position = Vector2( -10, -30 )
 shape = SubResource( 6 )
 
 [node name="DialogueManager" parent="." index="4" instance=ExtResource( 6 )]

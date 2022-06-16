@@ -55,6 +55,7 @@ func _on_PlayerDetector_body_exited(body):
 		body.unzoom_in()
 
 func talk(messages):
+	player.sprite.flip_h = false
 	sprite.animation = "talking"
 	dialogue_manager.show_messages(messages, dialog_spot.global_position)
 
