@@ -1,17 +1,19 @@
 extends RigidBody2D
 
-onready var earth_orb = $AnimatedSprite/OrbitCenter/Orbit/EarthOrb
-onready var water_orb = $AnimatedSprite/OrbitCenter/Orbit/WaterOrb
-onready var light_orb = $AnimatedSprite/OrbitCenter/Orbit/LightOrb
+onready var earth_orb = $Node2D/AnimatedSprite/OrbitCenter/Orbit/EarthOrb
+onready var water_orb = $Node2D/AnimatedSprite/OrbitCenter/Orbit/WaterOrb
+onready var light_orb = $Node2D/AnimatedSprite/OrbitCenter/Orbit/LightOrb
 onready var dialogue_manager = $DialogueManager
-onready var dialog_spot = $DialogSpot
-onready var sprite = $AnimatedSprite
+onready var dialog_spot = $Node2D/AnimatedSprite/DialogSpot
+onready var sprite = $Node2D/AnimatedSprite
+onready var animation = $AnimationPlayer
 
 enum State {
 	IDLE,
 	TALKING,
 	PRELEAVE_TALKING,
-	LEAVING,	
+	LEAVING,
+	UNDOCKED,
 }
 var state = State.IDLE
 
@@ -62,9 +64,29 @@ func _on_DialogueManager_finished():
 		state = State.IDLE
 	elif state == State.PRELEAVE_TALKING:
 		StateManager.cutscene_playing = true
-		state = State.LEAVING
-		yield(get_tree().create_timer(2), "timeout")
+		if StateManager.current_level < 3:
+			state = State.LEAVING
+			yield(get_tree().create_timer(2), "timeout")
+			HUD.fade_to_black()
+			yield(get_tree().create_timer(1), "timeout")
+			StateManager.load_next_level()
+		else:
+			# Keep the player frozen for the cutscene
+			StateManager.dialog_freeze = true
+			animation.play("rose_undocks")
+			# Transfer control to the animation finished listener
+	elif state == State.UNDOCKED:
+		# Keep the player frozen for the cutscene
+		StateManager.dialog_freeze = true
+		animation.play("rose_leaves")
+		# Transfer control to the animation finished listener
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if anim_name == "rose_undocks":
+		state = State.UNDOCKED
+		talk(["goodbye, Small Regent\n{p=2.0} :')"])
+		# Transfer control to the dialog finished listener, state == UNDOCKED
+	if anim_name == "rose_leaves":
 		HUD.fade_to_black()
 		yield(get_tree().create_timer(1), "timeout")
-		StateManager.load_next_level()
-
+		print("game")

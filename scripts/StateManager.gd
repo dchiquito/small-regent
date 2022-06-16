@@ -36,16 +36,16 @@ func rose_talk_message():
 		2:
 			return ["hello again Small Regent", "this asteroid is too dry for me", "if only i had some water,{p=0.5} i would be happy"]
 		3:
-			return ["hello Small Regent", "it is to dark to see where i am going", "if only i had some light,{p=0.5} i would be happy"]
+			return ["hello Small Regent", "it is too dark to see where i am going", "if only i had some light,{p=0.5} i would be happy"]
 
 func rose_leave_message():
 	match current_level:
 		1:
 			return ["this earth feels perfect on my roots", "thank you Small Regent\n{p=1.0} :)"]
 		2:
-			return ["this water is delicious", "thank you Small Regent\n{p=1.0}:)"]
+			return ["this water is delicious", "thank you Small Regent\n{p=1.0} :)"]
 		3:
-			return ["this light shines on everything", "thank you Small Regent\n{p=1.0}:)"]
+			return ["this light shines on everything", "{p=1.0} ...", "its time for me to go,{p=0.3} Small Regent", "I need to take care of myself now"]
 
 func merchant_talk_message():
 	match current_level:
