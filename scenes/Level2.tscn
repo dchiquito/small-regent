@@ -249,6 +249,7 @@ starting_point = 0.5
 
 [node name="WaterHuge2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1186, -2996 )
+walkable = false
 
 [node name="ObjectiveOrb" parent="WaterHuge2" instance=ExtResource( 11 )]
 position = Vector2( 264, -274 )

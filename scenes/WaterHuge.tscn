@@ -7,6 +7,7 @@
 radius = 350.121
 
 [node name="WaterHuge" instance=ExtResource( 1 )]
+walkable = false
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource( 1 )

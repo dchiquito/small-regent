@@ -1,8 +1,8 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scenes/Orbit.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Planet.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/GasRingsPlanet.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/BlockingRingPlanet.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/MerchantPlanet.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/RosePlanet.tscn" type="PackedScene" id=6]
@@ -10,24 +10,22 @@
 [ext_resource path="res://scenes/ZoomOut.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/WaterHuge.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/WaterMedium.tscn" type="PackedScene" id=10]
-[ext_resource path="res://scenes/WaterLarge.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/Money.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/Background.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/ObjectiveOrb.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/LightOrb.tscn" type="PackedScene" id=14]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 71.3442
+radius = 474.038
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 1450.0
+radius = 575.521
 
 [node name="Level3" type="Node2D"]
 
 [node name="Background" parent="." instance=ExtResource( 12 )]
 
 [node name="RosePlanet" parent="." instance=ExtResource( 6 )]
-
-[node name="Player" parent="RosePlanet" instance=ExtResource( 4 )]
-position = Vector2( -6, -43 )
 
 [node name="WetTerran" parent="." instance=ExtResource( 7 )]
 position = Vector2( -164, 31 )
@@ -38,170 +36,200 @@ position = Vector2( 42, -22 )
 [node name="WetTerran2" parent="." instance=ExtResource( 7 )]
 position = Vector2( -295, 224 )
 
-[node name="WaterMedium" parent="." instance=ExtResource( 10 )]
-position = Vector2( -276, 1226 )
-
-[node name="Orbit" parent="WaterMedium" instance=ExtResource( 1 )]
-position = Vector2( -20, -848 )
-eccentricity = 0.6
-
-[node name="WetTerran" parent="WaterMedium/Orbit" instance=ExtResource( 7 )]
-orbit = true
-
-[node name="WetTerran2" parent="WaterMedium/Orbit" instance=ExtResource( 7 )]
-position = Vector2( 249, 71 )
-orbit = true
-starting_point = 0.33
-
-[node name="WetTerran3" parent="WaterMedium/Orbit" instance=ExtResource( 7 )]
-position = Vector2( 127, 25 )
-orbit = true
-starting_point = 0.66
-
 [node name="WetTerran3" parent="." instance=ExtResource( 7 )]
-position = Vector2( -278, 1619 )
+position = Vector2( -1802, 1296 )
 
-[node name="WaterLarge" parent="." instance=ExtResource( 11 )]
-position = Vector2( -294, 2161 )
-
-[node name="Orbit" parent="WaterLarge" instance=ExtResource( 1 )]
-position = Vector2( 2, -358 )
-
-[node name="WetTerran" parent="WaterLarge/Orbit" instance=ExtResource( 7 )]
-position = Vector2( 83, 37 )
-orbit = true
-
-[node name="Planet" parent="WaterLarge/Orbit" instance=ExtResource( 2 )]
-position = Vector2( 161, 80 )
-orbit = true
-starting_point = 0.25
-
-[node name="GasRingsPlanet" parent="WaterLarge/Orbit" instance=ExtResource( 3 )]
-position = Vector2( 228, 115 )
-orbit = true
-starting_point = 0.5
-
-[node name="Planet2" parent="WaterLarge/Orbit" instance=ExtResource( 2 )]
-position = Vector2( 296, 184 )
-orbit = true
-starting_point = 0.75
-
-[node name="ZoomOut" parent="WaterLarge" instance=ExtResource( 8 )]
-
-[node name="WetTerran4" parent="." instance=ExtResource( 7 )]
-position = Vector2( -171, 2671 )
-
-[node name="ZoomOut" parent="WetTerran4" instance=ExtResource( 8 )]
-
-[node name="CollisionShape2D" parent="WetTerran4/ZoomOut" index="0"]
-shape = SubResource( 1 )
+[node name="Player" parent="WetTerran3" instance=ExtResource( 4 )]
+position = Vector2( -32, -103 )
 
 [node name="MerchantPlanet" parent="." instance=ExtResource( 5 )]
-position = Vector2( 52, 2506 )
+position = Vector2( -827, 1838 )
 
-[node name="WaterHuge" parent="." instance=ExtResource( 9 )]
-position = Vector2( 972, 3753 )
-walkable = false
+[node name="Money" parent="MerchantPlanet" instance=ExtResource( 11 )]
+position = Vector2( -64, 78 )
 
-[node name="Orbit5" parent="WaterHuge" instance=ExtResource( 1 )]
-position = Vector2( 140, -417 )
-reversed = true
+[node name="Money2" parent="MerchantPlanet" instance=ExtResource( 11 )]
+position = Vector2( -25, 97 )
 
-[node name="WetTerran" parent="WaterHuge/Orbit5" instance=ExtResource( 7 )]
+[node name="Money3" parent="MerchantPlanet" instance=ExtResource( 11 )]
+position = Vector2( 59, 78 )
+
+[node name="Money4" parent="MerchantPlanet" instance=ExtResource( 11 )]
+position = Vector2( 97, 14 )
+
+[node name="Money5" parent="MerchantPlanet" instance=ExtResource( 11 )]
+position = Vector2( 92, -52 )
+
+[node name="Money6" parent="MerchantPlanet" instance=ExtResource( 11 )]
+position = Vector2( 127, -25 )
+
+[node name="Money7" parent="MerchantPlanet" instance=ExtResource( 11 )]
+position = Vector2( 34, 144 )
+
+[node name="Money8" parent="MerchantPlanet" instance=ExtResource( 11 )]
+position = Vector2( 105, 42 )
+
+[node name="WaterMedium" parent="." instance=ExtResource( 10 )]
+position = Vector2( -643, 516 )
+
+[node name="Orbit" parent="WaterMedium" instance=ExtResource( 1 )]
+position = Vector2( 222, -187 )
+
+[node name="BlockingRingPlanet" parent="WaterMedium/Orbit" instance=ExtResource( 3 )]
 orbit = true
-orbital_period = 30
 
-[node name="ObjectiveOrb" parent="WaterHuge/Orbit5/WetTerran" instance=ExtResource( 13 )]
-position = Vector2( 26, 49 )
-
-[node name="Orbit" parent="WaterHuge" instance=ExtResource( 1 )]
-position = Vector2( -48, -608 )
-
-[node name="WetTerran" parent="WaterHuge/Orbit" instance=ExtResource( 7 )]
+[node name="BlockingRingPlanet2" parent="WaterMedium/Orbit" instance=ExtResource( 3 )]
 orbit = true
-orbital_period = 30
-
-[node name="WetTerran2" parent="WaterHuge/Orbit" instance=ExtResource( 7 )]
-position = Vector2( 90, 2 )
-orbit = true
-orbital_period = 30
-starting_point = 0.5
-
-[node name="Orbit2" parent="WaterHuge" instance=ExtResource( 1 )]
-position = Vector2( -322, -763 )
-
-[node name="WetTerran" parent="WaterHuge/Orbit2" instance=ExtResource( 7 )]
-orbit = true
-orbital_period = 20
-
-[node name="WetTerran2" parent="WaterHuge/Orbit2" instance=ExtResource( 7 )]
-position = Vector2( 100, -2 )
-orbit = true
-orbital_period = 20
 starting_point = 0.33
 
-[node name="WetTerran3" parent="WaterHuge/Orbit2" instance=ExtResource( 7 )]
-position = Vector2( 209, -5 )
+[node name="BlockingRingPlanet3" parent="WaterMedium/Orbit" instance=ExtResource( 3 )]
 orbit = true
-orbital_period = 20
 starting_point = 0.66
 
-[node name="Orbit3" parent="WaterHuge" instance=ExtResource( 1 )]
-position = Vector2( -619, -871 )
+[node name="Planet" parent="WaterMedium" instance=ExtResource( 2 )]
+position = Vector2( -286, -413 )
 
-[node name="WetTerran" parent="WaterHuge/Orbit3" instance=ExtResource( 7 )]
-orbit = true
+[node name="Money" parent="WaterMedium/Planet" instance=ExtResource( 11 )]
+position = Vector2( -49, -68 )
 
-[node name="WetTerran2" parent="WaterHuge/Orbit3" instance=ExtResource( 7 )]
-position = Vector2( 86, -17 )
+[node name="Planet2" parent="WaterMedium" instance=ExtResource( 2 )]
+position = Vector2( 300, 403 )
+
+[node name="Money" parent="WaterMedium/Planet2" instance=ExtResource( 11 )]
+position = Vector2( 52, 63 )
+
+[node name="WetTerran4" parent="." instance=ExtResource( 7 )]
+position = Vector2( -978, 792 )
+
+[node name="WaterHuge" parent="." instance=ExtResource( 9 )]
+position = Vector2( -1206, 1315 )
+
+[node name="Orbit" parent="WaterHuge" instance=ExtResource( 1 )]
+position = Vector2( 101, 402 )
+reversed = true
+
+[node name="Planet" parent="WaterHuge/Orbit" instance=ExtResource( 2 )]
 orbit = true
+orbital_period = 8
+
+[node name="Planet2" parent="WaterHuge/Orbit" instance=ExtResource( 2 )]
+orbit = true
+orbital_period = 8
 starting_point = 0.25
 
-[node name="WetTerran3" parent="WaterHuge/Orbit3" instance=ExtResource( 7 )]
-position = Vector2( 169, -29 )
+[node name="Planet3" parent="WaterHuge/Orbit" instance=ExtResource( 2 )]
 orbit = true
+orbital_period = 8
 starting_point = 0.5
 
-[node name="WetTerran4" parent="WaterHuge/Orbit3" instance=ExtResource( 7 )]
-position = Vector2( 254, -36 )
+[node name="Planet4" parent="WaterHuge/Orbit" instance=ExtResource( 2 )]
 orbit = true
-starting_point = 0.75
-
-[node name="Orbit4" parent="WaterHuge" instance=ExtResource( 1 )]
-position = Vector2( -936, -942 )
-
-[node name="WetTerran" parent="WaterHuge/Orbit4" instance=ExtResource( 7 )]
-orbit = true
-orbital_period = 20
-
-[node name="WetTerran2" parent="WaterHuge/Orbit4" instance=ExtResource( 7 )]
-position = Vector2( 90, -43 )
-orbit = true
-orbital_period = 20
-starting_point = 0.2
-
-[node name="WetTerran3" parent="WaterHuge/Orbit4" instance=ExtResource( 7 )]
-position = Vector2( 178, -93 )
-orbit = true
-orbital_period = 20
-starting_point = 0.4
-
-[node name="WetTerran4" parent="WaterHuge/Orbit4" instance=ExtResource( 7 )]
-position = Vector2( 281, -117 )
-orbit = true
-orbital_period = 20
-starting_point = 0.6
-
-[node name="WetTerran5" parent="WaterHuge/Orbit4" instance=ExtResource( 7 )]
-position = Vector2( 373, -157 )
-orbit = true
-orbital_period = 20
-starting_point = 0.8
+orbital_period = 8
+starting_point = 0.7
 
 [node name="ZoomOut" parent="WaterHuge" instance=ExtResource( 8 )]
 
 [node name="CollisionShape2D" parent="WaterHuge/ZoomOut" index="0"]
+shape = SubResource( 1 )
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2( -2480, 1324 )
+
+[node name="ObjectiveOrb" parent="Node2D" instance=ExtResource( 13 )]
+
+[node name="LightOrb" parent="Node2D/ObjectiveOrb" instance=ExtResource( 14 )]
+
+[node name="Orbit" parent="Node2D" instance=ExtResource( 1 )]
+position = Vector2( -95, -127 )
+
+[node name="BlockingRingPlanet" parent="Node2D/Orbit" instance=ExtResource( 3 )]
+orbit = true
+orbital_period = 8
+
+[node name="BlockingRingPlanet2" parent="Node2D/Orbit" instance=ExtResource( 3 )]
+orbit = true
+orbital_period = 8
+starting_point = 0.5
+
+[node name="Orbit2" parent="Node2D" instance=ExtResource( 1 )]
+position = Vector2( -222, -287 )
+reversed = true
+
+[node name="Planet" parent="Node2D/Orbit2" instance=ExtResource( 2 )]
+orbit = true
+
+[node name="Planet2" parent="Node2D/Orbit2" instance=ExtResource( 2 )]
+orbit = true
+starting_point = 0.25
+
+[node name="Planet3" parent="Node2D/Orbit2" instance=ExtResource( 2 )]
+orbit = true
+starting_point = 0.5
+
+[node name="Planet4" parent="Node2D/Orbit2" instance=ExtResource( 2 )]
+orbit = true
+starting_point = 0.75
+
+[node name="Orbit3" parent="Node2D" instance=ExtResource( 1 )]
+position = Vector2( -277, -354 )
+reversed = true
+
+[node name="Planet" parent="Node2D/Orbit3" instance=ExtResource( 2 )]
+orbit = true
+orbital_period = 5
+
+[node name="Planet2" parent="Node2D/Orbit3" instance=ExtResource( 2 )]
+orbit = true
+orbital_period = 5
+starting_point = 0.25
+
+[node name="Planet3" parent="Node2D/Orbit3" instance=ExtResource( 2 )]
+orbit = true
+orbital_period = 5
+starting_point = 0.5
+
+[node name="Planet4" parent="Node2D/Orbit3" instance=ExtResource( 2 )]
+orbit = true
+orbital_period = 5
+starting_point = 0.75
+
+[node name="Orbit4" parent="Node2D" instance=ExtResource( 1 )]
+position = Vector2( -341, -427 )
+reversed = true
+
+[node name="Planet" parent="Node2D/Orbit4" instance=ExtResource( 2 )]
+position = Vector2( 8, 10 )
+orbit = true
+orbital_period = 15
+
+[node name="Planet2" parent="Node2D/Orbit4" instance=ExtResource( 2 )]
+position = Vector2( 8, 10 )
+orbit = true
+orbital_period = 15
+starting_point = 0.2
+
+[node name="Planet3" parent="Node2D/Orbit4" instance=ExtResource( 2 )]
+position = Vector2( 8, 10 )
+orbit = true
+orbital_period = 15
+starting_point = 0.4
+
+[node name="Planet4" parent="Node2D/Orbit4" instance=ExtResource( 2 )]
+position = Vector2( 8, 10 )
+orbit = true
+orbital_period = 15
+starting_point = 0.6
+
+[node name="Planet5" parent="Node2D/Orbit4" instance=ExtResource( 2 )]
+position = Vector2( 8, 10 )
+orbit = true
+orbital_period = 15
+starting_point = 0.8
+
+[node name="ZoomOut" parent="Node2D" instance=ExtResource( 8 )]
+
+[node name="CollisionShape2D" parent="Node2D/ZoomOut" index="0"]
 shape = SubResource( 2 )
 
-[editable path="WetTerran4/ZoomOut"]
 [editable path="WaterHuge/ZoomOut"]
+[editable path="Node2D/ZoomOut"]
