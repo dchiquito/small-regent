@@ -38,11 +38,6 @@ position = Vector2( -12, -45 )
 [node name="WetTerran" parent="." instance=ExtResource( 7 )]
 position = Vector2( -164, 31 )
 
-[node name="ObjectiveOrb" parent="WetTerran" instance=ExtResource( 13 )]
-position = Vector2( 50, 11 )
-
-[node name="LightOrb" parent="WetTerran/ObjectiveOrb" instance=ExtResource( 14 )]
-
 [node name="WetTerran2" parent="." instance=ExtResource( 7 )]
 position = Vector2( -295, 224 )
 
