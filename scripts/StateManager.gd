@@ -50,9 +50,41 @@ func rose_leave_message():
 func merchant_talk_message():
 	match current_level:
 		1:
-			return ["Greetings and Salutations, Small Regent!"]
+			return [
+				"Greetings and Salutations, small regent!",
+				"You're looking for some...{p=1.0} \ndirt?",
+				"Well do I have just the product for you!",
+				"These SpeedBoots will have you zipping all over!",
+				"Why, I just saw some dirt off to the left!",
+				"Just imagine how fast you could find it!",
+				"With these boots!",
+				"Yours for the low low price of...",
+				"10 spacebucks!",
+				"...oh, you don't have that much?",
+				"The economy is in shambles, huh?"
+			]
 		2:
-			return ["bbb"]
+			return [
+				"small regent! Hello!",
+				"You're looking for some water?",
+				"Why, there's some on the other side of that planet there!",
+				"Good luck getting to it, though!",
+				"...without this JetPak!",
+				"Yours for the low low price of...",
+				"20 spacebucks!",
+				"...oh, still not enough?",
+				"Well I'm sure you'll figure something out."
+			]
 		3:
-			return ["ccc"]
+			return [
+				"Well, if it isn't my favorite small regent!",
+				"Looking for a light? Well look no further!",
+				"I'm selling this entire glowing planet!",
+				"Bathe every day in this luxurious golden glow!",
+				"Trust me, real estate is the best investment!",
+				"Yours for the low low price of...",
+				"20 spacebucks!",
+				"...hmm, guess you're still short.",
+				"Not much of a regent, are you?",
+			]
 

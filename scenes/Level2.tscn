@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scenes/RosePlanet.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
@@ -14,6 +14,11 @@
 [ext_resource path="res://scenes/Background.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/Money.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/MerchantPlanet.tscn" type="PackedScene" id=14]
+[ext_resource path="res://art/item-jetpack.png" type="Texture" id=15]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.176796, 0.839779, 1 )
+colors = PoolColorArray( 0, 0, 0, 0, 1, 1, 1, 1, 0.913725, 0.913725, 0.913725, 1, 1, 1, 1, 0 )
 
 [node name="Level2" type="Node2D"]
 
@@ -200,17 +205,11 @@ orbit = true
 orbital_period = 60
 starting_point = 0.4
 
-[node name="Money" parent="WaterLarge/Orbit2/Planet" instance=ExtResource( 13 )]
-position = Vector2( -20, 34 )
-
 [node name="Planet2" parent="WaterLarge/Orbit2" instance=ExtResource( 7 )]
 position = Vector2( 43, -26 )
 orbit = true
 orbital_period = 60
 starting_point = 0.9
-
-[node name="Money" parent="WaterLarge/Orbit2/Planet2" instance=ExtResource( 13 )]
-position = Vector2( 22, -28 )
 
 [node name="Node2D2" type="Node2D" parent="."]
 position = Vector2( 92, -1843 )
@@ -282,3 +281,19 @@ position = Vector2( -595, 649 )
 
 [node name="MerchantPlanet" parent="WaterHuge2" instance=ExtResource( 14 )]
 position = Vector2( -834, 417 )
+
+[node name="Sprite3" type="Sprite" parent="WaterHuge2/MerchantPlanet"]
+position = Vector2( -3, -75 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 15 )
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="WaterHuge2/MerchantPlanet/Sprite3"]
+z_index = -1
+amount = 20
+lifetime = 0.1
+speed_scale = 0.07
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 60.0
+color = Color( 0.972549, 0.929412, 0.254902, 1 )
+color_ramp = SubResource( 1 )

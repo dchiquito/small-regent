@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scenes/Background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Planet.tscn" type="PackedScene" id=2]
@@ -13,6 +13,11 @@
 [ext_resource path="res://scenes/RosePlanet.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/EarthOrb.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/TutorialText.tscn" type="PackedScene" id=13]
+[ext_resource path="res://art/item-fastboots.png" type="Texture" id=14]
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0, 0.176796, 0.839779, 1 )
+colors = PoolColorArray( 0, 0, 0, 0, 1, 1, 1, 1, 0.913725, 0.913725, 0.913725, 1, 1, 1, 1, 0 )
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 430.0
@@ -90,6 +95,22 @@ position = Vector2( 526, -1182 )
 
 [node name="MerchantPlanet" parent="." instance=ExtResource( 9 )]
 position = Vector2( 638, -1257 )
+
+[node name="Sprite2" type="Sprite" parent="MerchantPlanet"]
+position = Vector2( -3, -75 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 14 )
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="MerchantPlanet/Sprite2"]
+z_index = -1
+amount = 20
+lifetime = 0.1
+speed_scale = 0.07
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 60.0
+color = Color( 0.972549, 0.929412, 0.254902, 1 )
+color_ramp = SubResource( 2 )
 
 [node name="Planet15" parent="." instance=ExtResource( 2 )]
 position = Vector2( 712, -1028 )
