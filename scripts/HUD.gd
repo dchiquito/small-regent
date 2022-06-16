@@ -17,3 +17,9 @@ func fade_in():
 
 func fin():
 	fader.play("fin")
+
+func show_money():
+	label.visible = true
+
+func hide_money():
+	label.visible = false

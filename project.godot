@@ -45,7 +45,8 @@ _global_script_class_icons={
 [application]
 
 config/name="Small Regent"
-run/main_scene="res://scenes/Level1.tscn"
+run/main_scene="res://scenes/PreMenu.tscn"
+run/low_processor_mode=true
 config/icon="res://art/icon.png"
 
 [autoload]

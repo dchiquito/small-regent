@@ -52,6 +52,7 @@ tracks/0/keys = {
 script = ExtResource( 1 )
 
 [node name="Money" type="Label" parent="."]
+visible = false
 margin_left = 24.0
 margin_top = 5.0
 margin_right = 96.0

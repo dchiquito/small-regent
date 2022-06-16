@@ -92,4 +92,6 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		yield(get_tree().create_timer(1), "timeout")
 		HUD.fin()
 		yield(get_tree().create_timer(5), "timeout")
-		print("OVER")
+		StateManager.load_post_menu()
+		HUD.hide_money()
+		HUD.fade_in()

@@ -29,14 +29,6 @@ region = Rect2( 44, 0, 22, 33 )
 atlas = ExtResource( 2 )
 region = Rect2( 66, 0, 22, 33 )
 
-[sub_resource type="AtlasTexture" id=59]
-atlas = ExtResource( 2 )
-region = Rect2( 220, 0, 22, 33 )
-
-[sub_resource type="AtlasTexture" id=60]
-atlas = ExtResource( 2 )
-region = Rect2( 242, 0, 22, 33 )
-
 [sub_resource type="AtlasTexture" id=64]
 atlas = ExtResource( 2 )
 region = Rect2( 154, 0, 22, 33 )
@@ -61,16 +53,19 @@ region = Rect2( 176, 0, 22, 33 )
 atlas = ExtResource( 2 )
 region = Rect2( 198, 0, 22, 33 )
 
+[sub_resource type="AtlasTexture" id=59]
+atlas = ExtResource( 2 )
+region = Rect2( 220, 0, 22, 33 )
+
+[sub_resource type="AtlasTexture" id=60]
+atlas = ExtResource( 2 )
+region = Rect2( 242, 0, 22, 33 )
+
 [sub_resource type="SpriteFrames" id=67]
 animations = [ {
 "frames": [ SubResource( 55 ), SubResource( 56 ), SubResource( 57 ), SubResource( 58 ) ],
 "loop": true,
 "name": "idle",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 59 ), SubResource( 60 ) ],
-"loop": true,
-"name": "freefall",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 64 ), SubResource( 61 ), SubResource( 62 ), SubResource( 63 ) ],
@@ -81,6 +76,11 @@ animations = [ {
 "frames": [ SubResource( 65 ), SubResource( 66 ) ],
 "loop": true,
 "name": "reel",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 59 ), SubResource( 60 ) ],
+"loop": true,
+"name": "freefall",
 "speed": 5.0
 } ]
 
@@ -137,7 +137,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 67 )
 animation = "idle"
-frame = 2
+frame = 3
 playing = true
 
 [node name="CameraZoomer" type="AnimationPlayer" parent="."]

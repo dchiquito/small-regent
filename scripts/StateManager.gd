@@ -4,7 +4,7 @@ extends Node
 
 var dialog_freeze: bool = false
 var cutscene_playing: bool = false
-var current_level: int = 1
+var current_level: int = 0
 
 func get_level_scene(level):
 	match level:
@@ -19,6 +19,10 @@ func load_next_level():
 	current_level += 1
 	get_tree().change_scene(get_level_scene(current_level))
 	cutscene_playing = false
+
+func load_post_menu():
+	current_level = 0
+	get_tree().change_scene("res://scenes/PostMenu.tscn")
 
 func select_current_orb(earth, water, light):
 	match current_level:
