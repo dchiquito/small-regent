@@ -23,3 +23,7 @@ func show_money():
 
 func hide_money():
 	label.visible = false
+
+func reset_money():
+	money = 0
+	label.text = str(money)
