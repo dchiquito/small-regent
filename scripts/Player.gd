@@ -4,6 +4,7 @@ const harpoon_scene = preload("res://scenes/Harpoon.tscn")
 onready var sprite = $AnimatedSprite
 onready var camera_zoomer = $CameraZoomer
 onready var camera = $Camera2D
+onready var dust = $Dust
 onready var earth_orb = $Orbit/EarthOrb
 onready var water_orb = $Orbit/WaterOrb
 onready var light_orb = $Orbit/LightOrb
@@ -80,6 +81,7 @@ func _physics_process(delta):
 				state = State.IDLE
 				sprite.animation = "idle"
 				sound_thud.play()
+				dust.emitting = true
 				remove_harpoon()
 
 func harpoon_latched(body):

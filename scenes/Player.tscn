@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://art/regent-sprite-sheet.png" type="Texture" id=2]
@@ -29,22 +29,6 @@ region = Rect2( 44, 0, 22, 33 )
 atlas = ExtResource( 2 )
 region = Rect2( 66, 0, 22, 33 )
 
-[sub_resource type="AtlasTexture" id=64]
-atlas = ExtResource( 2 )
-region = Rect2( 154, 0, 22, 33 )
-
-[sub_resource type="AtlasTexture" id=61]
-atlas = ExtResource( 2 )
-region = Rect2( 88, 0, 22, 33 )
-
-[sub_resource type="AtlasTexture" id=62]
-atlas = ExtResource( 2 )
-region = Rect2( 110, 0, 22, 33 )
-
-[sub_resource type="AtlasTexture" id=63]
-atlas = ExtResource( 2 )
-region = Rect2( 132, 0, 22, 33 )
-
 [sub_resource type="AtlasTexture" id=65]
 atlas = ExtResource( 2 )
 region = Rect2( 176, 0, 22, 33 )
@@ -61,16 +45,27 @@ region = Rect2( 220, 0, 22, 33 )
 atlas = ExtResource( 2 )
 region = Rect2( 242, 0, 22, 33 )
 
+[sub_resource type="AtlasTexture" id=64]
+atlas = ExtResource( 2 )
+region = Rect2( 154, 0, 22, 33 )
+
+[sub_resource type="AtlasTexture" id=61]
+atlas = ExtResource( 2 )
+region = Rect2( 88, 0, 22, 33 )
+
+[sub_resource type="AtlasTexture" id=62]
+atlas = ExtResource( 2 )
+region = Rect2( 110, 0, 22, 33 )
+
+[sub_resource type="AtlasTexture" id=63]
+atlas = ExtResource( 2 )
+region = Rect2( 132, 0, 22, 33 )
+
 [sub_resource type="SpriteFrames" id=67]
 animations = [ {
 "frames": [ SubResource( 55 ), SubResource( 56 ), SubResource( 57 ), SubResource( 58 ) ],
 "loop": true,
 "name": "idle",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 64 ), SubResource( 61 ), SubResource( 62 ), SubResource( 63 ) ],
-"loop": true,
-"name": "walk",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 65 ), SubResource( 66 ) ],
@@ -81,6 +76,11 @@ animations = [ {
 "frames": [ SubResource( 59 ), SubResource( 60 ) ],
 "loop": true,
 "name": "freefall",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 64 ), SubResource( 61 ), SubResource( 62 ), SubResource( 63 ) ],
+"loop": true,
+"name": "walk",
 "speed": 5.0
 } ]
 
@@ -116,6 +116,10 @@ tracks/0/keys = {
 "values": [ Vector2( 0.7, 0.7 ), Vector2( 1, 1 ) ]
 }
 
+[sub_resource type="Gradient" id=71]
+offsets = PoolRealArray( 0, 0.176796, 0.839779, 1 )
+colors = PoolColorArray( 0, 0, 0, 0, 1, 1, 1, 1, 0.913725, 0.913725, 0.913725, 1, 1, 1, 1, 0 )
+
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 2, -88 )
 script = ExtResource( 1 )
@@ -137,7 +141,6 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 67 )
 animation = "idle"
-frame = 3
 playing = true
 
 [node name="CameraZoomer" type="AnimationPlayer" parent="."]
@@ -171,3 +174,18 @@ volume_db = -20.0
 
 [node name="Thud" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 8 )
+
+[node name="Dust" type="CPUParticles2D" parent="."]
+position = Vector2( 3, 15 )
+rotation = 4.71239
+emitting = false
+amount = 15
+lifetime = 0.2
+one_shot = true
+explosiveness = 0.98
+spread = 100.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 60.0
+initial_velocity_random = 1.0
+color = Color( 0.639216, 0.654902, 0.760784, 1 )
+color_ramp = SubResource( 71 )
