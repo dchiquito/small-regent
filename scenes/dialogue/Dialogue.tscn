@@ -28,10 +28,13 @@ anchor_bottom = 1.0
 margin_left = 3.0
 margin_top = -41.0
 margin_right = 102.0
-margin_bottom = -4.0
+margin_bottom = -1.0
 theme = ExtResource( 6 )
 custom_colors/default_color = Color( 0.00392157, 0.0862745, 0.129412, 1 )
 custom_colors/font_color_selected = Color( 0.00392157, 0.0862745, 0.129412, 1 )
+text = "a
+b
+c"
 override_selected_font_color = true
 __meta__ = {
 "_edit_use_anchors_": false
