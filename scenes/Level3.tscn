@@ -44,8 +44,11 @@ position = Vector2( -295, 224 )
 [node name="WetTerran3" parent="." instance=ExtResource( 7 )]
 position = Vector2( -1802, 1296 )
 
+[node name="Planet" parent="." instance=ExtResource( 2 )]
+position = Vector2( -882, 1794 )
+
 [node name="MerchantPlanet" parent="." instance=ExtResource( 5 )]
-position = Vector2( -827, 1838 )
+position = Vector2( -737, 1888 )
 
 [node name="Money" parent="MerchantPlanet" instance=ExtResource( 11 )]
 position = Vector2( -64, 78 )
